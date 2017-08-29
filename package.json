@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "@angular/common": "^4.3.6",
+    "@angular/compiler": "^4.3.6",
+    "@angular/core": "^4.3.6",
+    "@angular/router": "^4.3.6",
+    "@angular/platform-browser": "^4.3.6",
+    "@angular/platform-browser-dynamic": "^4.3.6",
+    "core-js": "^2.5.0",
+    "rxjs": "^5.4.3",
+    "zone.js": "^0.8.17"
+  },
+  "name": "caspart-health-demo",
+  "version": "1.0.0",
+  "description": "Proof on Concept project for Caspar Health",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sleshJdev/caspar-health-demo.git"
+  },
+  "author": "Yauheni Putsykovich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sleshJdev/caspar-health-demo/issues"
+  },
+  "homepage": "https://github.com/sleshJdev/caspar-health-demo#readme"
+}
