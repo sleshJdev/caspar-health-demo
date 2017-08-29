@@ -1,0 +1,28 @@
+<table>
+    <caption>
+        Patients
+        <button (click)="add()">Add</button>
+    </caption>
+    <thead>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Therapist</th>
+        <th>Clinic</th>
+        <td>#</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let it of patients">
+        <td>{{it.firstName}}</td>
+        <td>{{it.lastName}}</td>
+        <td>{{it.therapist.firstName + ' ' + it.therapist.lastName}}</td>
+        <td>{{it.therapist.clinic.title}}</td>
+        <td>
+            <button type="button" (click)="edit(it)">Edit</button>
+            <button type="button" (click)="remove(it)">Remove</button>
+        </td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>

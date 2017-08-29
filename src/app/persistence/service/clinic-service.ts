@@ -9,4 +9,10 @@ export class ClinicService extends CrudService<Clinic> {
         return Clinic.KEY;
     }
 
+    save1(clinic: Clinic) {
+        super.save(clinic).subscribe(clinic => {
+
+        });
+    }
+
 }

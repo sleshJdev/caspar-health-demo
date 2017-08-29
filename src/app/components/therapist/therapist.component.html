@@ -1,0 +1,33 @@
+<form>
+    <div>
+        <h2>
+            Therapist
+        </h2>
+    </div>
+    <div>
+        <label>
+            First name:
+            <input type="text" [(ngModel)]="therapist.firstName" [ngModelOptions]="{standalone: true}">
+        </label>
+    </div>
+    <div>
+        <label>
+            Last name:
+            <input type="text" [(ngModel)]="therapist.lastName" [ngModelOptions]="{standalone: true}">
+        </label>
+    </div>
+    <div>
+        <label>
+            Clinic:
+            <select [(ngModel)]="therapist.clinic"
+                    [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let it of clinics" [ngValue]="it">
+                    {{it.title}}
+                </option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <button (click)="save()">Save</button>
+    </div>
+</form>

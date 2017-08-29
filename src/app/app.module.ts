@@ -9,6 +9,10 @@ import {AboutComponent} from "./components/about/about.component";
 import {HomeComponent} from "./components/home/home.component";
 import {ClinicsComponent} from "./components/clinic/clinics.component";
 import {ClinicComponent} from "./components/clinic/clinic.component";
+import {PatientComponent} from "./components/patient/patient.component";
+import {PatientsComponent} from "./components/patient/patients.component";
+import {TherapistComponent} from "./components/therapist/therapist.component";
+import {TherapistsComponent} from "./components/therapist/therapists.component";
 
 @NgModule({
     imports: [
@@ -21,7 +25,10 @@ import {ClinicComponent} from "./components/clinic/clinic.component";
     declarations: [
         AppComponent,
         HomeComponent, AboutComponent,
-        ClinicsComponent, ClinicComponent],
+        ClinicsComponent, ClinicComponent,
+        TherapistsComponent, TherapistComponent,
+        PatientsComponent, PatientComponent
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,10 +1,9 @@
 import {Entity} from "./entiy";
 import {Clinic} from "./clinic";
-import {first} from "rxjs/operator/first";
 
 export class Therapist extends Entity {
 
-    public readonly KEY: string = 'therapist';
+    static readonly KEY: string = 'therapist';
 
     firstName: string;
     lastName: string;
@@ -18,6 +17,10 @@ export class Therapist extends Entity {
         this.firstName = firstName;
         this.lastName = lastName;
         this.clinic = clinic;
+    }
+
+    get fullName(): string {
+        return this.firstName + ' ' + this.lastName;
     }
 
 }

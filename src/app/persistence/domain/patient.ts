@@ -4,22 +4,23 @@ import {Clinic} from "./clinic";
 
 export class Patient extends Entity {
 
-    public readonly KEY: string = 'patient';
+    static readonly KEY: string = 'patient';
 
     firstName: string;
     lastName: string;
     therapist;
-    clinic;
 
     constructor(id: number = null,
                 firstName: string = '', lastName: string = '',
-                clinic: Clinic = new Clinic(),
                 therapist: Therapist = new Therapist()) {
         super(id);
         this.firstName = firstName;
         this.lastName = lastName;
-        this.clinic = clinic;
         this.therapist = therapist;
+    }
+
+    get fullName(): string {
+        return this.firstName + ' ' + this.lastName;
     }
 
 }

@@ -30,10 +30,8 @@ export class ClinicComponent implements OnInit {
     }
 
     save() {
-        this.clinicService.remove(this.clinic).subscribe(() => {
-            this.clinicService.save(this.clinic).subscribe(() => {
-                this.router.navigate(['/clinics']);
-            });
+        this.clinicService.save(this.clinic).subscribe(() => {
+            this.router.navigate(['/clinics']);
         });
     }
 
