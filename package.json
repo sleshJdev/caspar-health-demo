@@ -1,6 +1,12 @@
 {
   "devDependencies": {
-    "typescript": "^2.4.2"
+    "awesome-typescript-loader": "^3.2.3",
+    "typescript": "^2.4.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "scripts": {
+    "build": "webpack"
   },
   "dependencies": {
     "@angular/common": "^4.3.6",
