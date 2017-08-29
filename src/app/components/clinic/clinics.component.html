@@ -1,22 +1,30 @@
-<table>
+<table class="table">
     <caption>
-        Clinic
-        <button (click)="add()">Add</button>
+        <div>
+            <div class="col-sm-10 text-left">
+                <h2 class="pull-left">Clinics</h2>
+            </div>
+            <div class="col-sm-2 pull-right">
+                <button class="pull-right btn btn-default" (click)="add()">Add</button>
+
+            </div>
+        </div>
     </caption>
     <thead>
     <tr>
-        <th>Title</th>
-        <td>#</td>
+        <th>Clinic title</th>
+        <td class="col-sm-3 text-center">#</td>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let it of clinics">
         <td>{{it.title}}</td>
         <td>
-            <button type="button" (click)="edit(it)">Edit</button>
-            <button type="button" (click)="remove(it)">Remove</button>
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default" (click)="edit(it)">Edit</button>
+                <button type="button" class="btn btn-default" (click)="remove(it)">Remove</button>
+            </div>
         </td>
-        <td></td>
     </tr>
     </tbody>
 </table>

@@ -1,14 +1,16 @@
-<form>
+<form class="form-horizontal">
     <div>
         <h2>Clinic</h2>
     </div>
-    <div>
-        <label>
-            Title:
-            <input type="text" [(ngModel)]="clinic.title" [ngModelOptions]="{standalone: true}">
-        </label>
+    <div class="form-group">
+        <label for="title" class="col-sm-2 control-label"> Title: </label>
+        <div class="col-sm-10">
+            <input id="title" class="form-control" type="text" [(ngModel)]="clinic.title" [ngModelOptions]="{standalone: true}">
+        </div>
     </div>
-    <div>
-        <button (click)="save()">Add</button>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-default" (click)="save()">Add</button>
+        </div>
     </div>
 </form>

@@ -1,7 +1,11 @@
-<table>
+<table class="table">
     <caption>
-        Patients
-        <button (click)="add()">Add</button>
+        <div>
+            <div class="col-sm-10 text-left">Patients</div>
+            <div class="col-sm-2">
+                <button class="pull-right" (click)="add()">Add</button>
+            </div>
+        </div>
     </caption>
     <thead>
     <tr>
@@ -9,7 +13,7 @@
         <th>Last name</th>
         <th>Therapist</th>
         <th>Clinic</th>
-        <td>#</td>
+        <td class="col-sm-3 text-center">#</td>
     </tr>
     </thead>
     <tbody>
@@ -19,10 +23,11 @@
         <td>{{it.therapist.firstName + ' ' + it.therapist.lastName}}</td>
         <td>{{it.therapist.clinic.title}}</td>
         <td>
-            <button type="button" (click)="edit(it)">Edit</button>
-            <button type="button" (click)="remove(it)">Remove</button>
+            <div class="btn-group  pull-right">
+                <button type="button" class="btn btn-default" (click)="edit(it)">Edit</button>
+                <button type="button" class="btn btn-default" (click)="remove(it)">Remove</button>
+            </div>
         </td>
-        <td></td>
     </tr>
     </tbody>
 </table>

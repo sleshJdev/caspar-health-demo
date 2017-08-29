@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'caspart-health-app',
-    template: `<router-outlet></router-outlet>`
+    templateUrl: './app.component.html',
+    styles: [String(require('./app.component.css'))]
 })
 export class AppComponent {
 }

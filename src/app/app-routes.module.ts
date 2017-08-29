@@ -41,14 +41,22 @@ const routes: Routes = [
         path: 'about',
         component: AboutComponent
     }, {
-        path: '',
+        path: 'home',
         component: HomeComponent
-    }
+    }, {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+    },
 ];
+
+const config = {
+    enableTracing: true
+};
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, config)
     ],
     exports: [
         RouterModule

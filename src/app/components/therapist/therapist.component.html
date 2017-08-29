@@ -1,33 +1,36 @@
-<form>
-    <div>
-        <h2>
-            Therapist
-        </h2>
+<form class="form form-horizontal">
+    <div class="text-left">
+        <h2> Therapist </h2>
     </div>
-    <div>
-        <label>
-            First name:
-            <input type="text" [(ngModel)]="therapist.firstName" [ngModelOptions]="{standalone: true}">
-        </label>
+    <div class="form-group">
+        <label for="first-name" class="col-sm-2 control-label"> First name: </label>
+        <div class="col-sm-10">
+            <input id="first-name" type="text" class="form-control"
+                   [(ngModel)]="therapist.firstName" [ngModelOptions]="{standalone: true}">
+        </div>
     </div>
-    <div>
-        <label>
-            Last name:
-            <input type="text" [(ngModel)]="therapist.lastName" [ngModelOptions]="{standalone: true}">
-        </label>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"> Last name: </label>
+        <div class="col-sm-10">
+            <input id="last-name" type="text" class="form-control"
+                   [(ngModel)]="therapist.lastName" [ngModelOptions]="{standalone: true}">
+        </div>
     </div>
-    <div>
-        <label>
-            Clinic:
-            <select [(ngModel)]="therapist.clinic"
+    <div class="form-group">
+        <label for="clinic" class="col-sm-2 control-label"> Clinic: </label>
+        <div class="col-sm-10">
+            <select id="clinic" class="form-control"
+                    [(ngModel)]="therapist.clinic"
                     [ngModelOptions]="{standalone: true}">
                 <option *ngFor="let it of clinics" [ngValue]="it">
                     {{it.title}}
                 </option>
             </select>
-        </label>
+        </div>
     </div>
-    <div>
-        <button (click)="save()">Save</button>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-default" (click)="save()">Save</button>
+        </div>
     </div>
 </form>

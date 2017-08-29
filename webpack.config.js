@@ -1,5 +1,6 @@
 const path = require('path')
     , webpack = require('webpack')
+    , ExtractTextPlugin = require('extract-text-webpack-plugin')
     , HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const
@@ -18,8 +19,8 @@ const
         devtool: 'source-map',
 
         resolve: {
-            modules: ['node_modules'],
-            extensions: ['.ts', '.js']
+            modules: ['node_modules', 'bower_components'],
+            extensions: ['.ts', '.js', '.*']
         },
 
         resolveLoader: {
@@ -45,16 +46,40 @@ const
                             loader: 'raw-loader'
                         }
                     ]
+                }, {
+                    test: /\.css/,
+                    use: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: [
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    importLoaders: 1,
+                                    sourceMap: true
+                                }
+                            }
+                        ]
+                    })
+                }, {
+                    test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                    use: {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 100000
+                        }
+                    }
                 }
             ]
         },
 
         plugins: [
+            new ExtractTextPlugin('style.css', {allChunks: true}),
             new HtmlWebpackPlugin({
                 template: 'index.html'
             })
         ]
 
-    };
+    }
+;
 
 module.exports = config;

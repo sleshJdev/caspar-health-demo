@@ -13,6 +13,7 @@ import {PatientComponent} from "./components/patient/patient.component";
 import {PatientsComponent} from "./components/patient/patients.component";
 import {TherapistComponent} from "./components/therapist/therapist.component";
 import {TherapistsComponent} from "./components/therapist/therapists.component";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @NgModule({
     imports: [
@@ -21,7 +22,7 @@ import {TherapistsComponent} from "./components/therapist/therapists.component";
         AppRoutesModule,
         DomainModule
     ],
-    providers: [AppComponent],
+    providers: [AppComponent, {provide: LocationStrategy, useClass: HashLocationStrategy}],
     declarations: [
         AppComponent,
         HomeComponent, AboutComponent,
