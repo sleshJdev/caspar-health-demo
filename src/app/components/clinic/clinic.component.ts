@@ -1,26 +1,41 @@
-import {Component} from "@angular/core";
-import {ClinicService} from "../../persistence/service/clinic-service";
 import {Clinic} from "../../persistence/domain/clinic";
-import {Observable} from "rxjs/Observable";
+import {ClinicService} from "../../persistence/service/clinic-service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit} from "@angular/core";
 
 @Component({
     selector: 'clinic',
-    templateUrl: './clinic.component.html',
+    templateUrl: './clinic.component.html'
 })
-export class ClinicComponent {
+export class ClinicComponent implements OnInit {
 
-    clinic: Clinic = new Clinic(null, '');
+    clinic: Clinic;
 
-    constructor(private clinicService: ClinicService) {
+    constructor(private clinicService: ClinicService,
+                private activatedRoute: ActivatedRoute,
+                private router: Router) {
     }
 
-    add() {
-        this.clinicService.save(this.clinic);
-        this.clinic = new Clinic(null, '');
+    ngOnInit(): void {
+        this.activatedRoute.params.subscribe(params => {
+            const id = params['id'];
+            if (id) {
+                this.clinicService.findOne(+id).subscribe(clinic => {
+                    this.clinic = clinic;
+                });
+            } else {
+                this.clinic = new Clinic();
+            }
+        });
     }
 
-    getAll(): Array<Clinic> {
-        return this.clinicService.getAll();
+    save() {
+        this.clinicService.remove(this.clinic).subscribe(() => {
+            this.clinicService.save(this.clinic).subscribe(() => {
+                this.router.navigate(['/clinics']);
+            });
+        });
     }
+
 
 }

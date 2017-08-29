@@ -1,15 +1,23 @@
 import {Entity} from "./entiy";
-import {Patient} from "./patient";
+import {Clinic} from "./clinic";
+import {first} from "rxjs/operator/first";
 
 export class Therapist extends Entity {
 
-    name: string;
-    patients: Array<Patient>;
+    public readonly KEY: string = 'therapist';
 
-    constructor(id: number, name: string, patients: Array<Patient>) {
+    firstName: string;
+    lastName: string;
+    clinic: Clinic;
+
+    constructor(id: number = null,
+                firstName: string = '',
+                lastName: string = '',
+                clinic: Clinic = new Clinic()) {
         super(id);
-        this.name = name;
-        this.patients = patients;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.clinic = clinic;
     }
 
 }

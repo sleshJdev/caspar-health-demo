@@ -1,12 +1,25 @@
 import {Entity} from "./entiy";
+import {Therapist} from "./therapist";
+import {Clinic} from "./clinic";
 
 export class Patient extends Entity {
 
-    name: string;
+    public readonly KEY: string = 'patient';
 
-    constructor(id: number, name: string) {
+    firstName: string;
+    lastName: string;
+    therapist;
+    clinic;
+
+    constructor(id: number = null,
+                firstName: string = '', lastName: string = '',
+                clinic: Clinic = new Clinic(),
+                therapist: Therapist = new Therapist()) {
         super(id);
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.clinic = clinic;
+        this.therapist = therapist;
     }
 
 }

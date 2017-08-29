@@ -1,0 +1,22 @@
+<table>
+    <caption>
+        Clinic
+        <button (click)="add()">Add</button>
+    </caption>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <td>#</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let it of clinics">
+        <td>{{it.title}}</td>
+        <td>
+            <button type="button" (click)="edit(it)">Edit</button>
+            <button type="button" (click)="remove(it)">Remove</button>
+        </td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>

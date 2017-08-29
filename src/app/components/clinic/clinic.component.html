@@ -1,30 +1,14 @@
-<div>
-    <h1>Clinic</h1>
-</div>
-
 <form>
     <div>
+        <h2>Clinic</h2>
+    </div>
+    <div>
         <label>
-            Name:
-            <input type="text" [(ngModel)]="clinic.name" [ngModelOptions]="{standalone: true}">
+            Title:
+            <input type="text" [(ngModel)]="clinic.title" [ngModelOptions]="{standalone: true}">
         </label>
     </div>
     <div>
-        <button (click)="add()">Add</button>
+        <button (click)="save()">Add</button>
     </div>
 </form>
-
-<table>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let it of getAll()">
-            <td>{{it.id}}</td>
-            <td>{{it.name}}</td>
-        </tr>
-    </tbody>
-</table>

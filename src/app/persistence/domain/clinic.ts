@@ -1,15 +1,14 @@
-import {Therapist} from "./therapist";
 import {Entity} from "./entiy";
 
 export class Clinic extends Entity {
 
-    name: string;
-    therapists: Array<Therapist>;
+    public static readonly KEY: string = 'clinic';
 
-    constructor(id: number, name: string, therapists: Array<Therapist> = []) {
+    title: string;
+
+    constructor(id: number = null, title: string = '') {
         super(id);
-        this.name = name;
-        this.therapists = therapists;
+        this.title = title;
     }
 
 }
