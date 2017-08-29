@@ -15,6 +15,8 @@ const
             filename: 'bundle.js'
         },
 
+        devtool: 'source-map',
+
         resolve: {
             modules: ['node_modules'],
             extensions: ['.ts', '.js']
