@@ -32,6 +32,15 @@ const
                     use: [
                         {
                             loader: 'awesome-typescript-loader'
+                        }, {
+                            loader: 'angular2-template-loader'
+                        }
+                    ]
+                }, {
+                    test: /\.html$/,
+                    use: [
+                        {
+                            loader: 'raw-loader'
                         }
                     ]
                 }
