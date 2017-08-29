@@ -3,7 +3,6 @@ import {LocalStorageService} from "angular-2-local-storage";
 import {Entity} from "../domain/entiy";
 import {Observable} from "rxjs/Observable";
 
-@Injectable()
 export abstract class CrudService<T extends Entity> {
 
     constructor(private storage: LocalStorageService) {
@@ -36,7 +35,7 @@ export abstract class CrudService<T extends Entity> {
         });
     }
 
-    save(entity: T): Observable<T> {
+    saveOne(entity: T): Observable<T> {
         return this.applyAction(dataSet => {
             entity.id = entity.id || dataSet.size + 1;
             dataSet.set(entity.id, entity);
