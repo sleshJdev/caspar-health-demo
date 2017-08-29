@@ -1,44 +1,49 @@
 const path = require('path')
-    , webpack = require('webpack');
+    , webpack = require('webpack')
+    , HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const config = {
+const
+    config = {
+        context: path.join(__dirname, 'src'),
 
-    entry: {
-        bundle: path.join(__dirname, 'src/index.ts')
-    },
+        entry: {
+            bundle: path.join(__dirname, 'src/index.ts')
+        },
 
-    output: {
-        path: path.join(__dirname, 'dst'),
-        filename: 'bundle.js'
-    },
+        output: {
+            path: path.join(__dirname, 'dst'),
+            filename: 'bundle.js'
+        },
 
-    resolve: {
-        modules: ['node_modules'],
-        extensions: ['.ts', '.js']
-    },
+        resolve: {
+            modules: ['node_modules'],
+            extensions: ['.ts', '.js']
+        },
 
-    resolveLoader: {
-        modules: ['node_modules'],
-        extensions: ['.js']
-    },
+        resolveLoader: {
+            modules: ['node_modules'],
+            extensions: ['.js']
+        },
 
-    module: {
-        rules: [
-            {
-                test: /\.ts$/,
-                use: [
-                    {
-                        loader: 'awesome-typescript-loader'
-                    }
-                ]
-            }
+        module: {
+            rules: [
+                {
+                    test: /\.ts$/,
+                    use: [
+                        {
+                            loader: 'awesome-typescript-loader'
+                        }
+                    ]
+                }
+            ]
+        },
+
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: 'index.html'
+            })
         ]
-    },
 
-    plugins: [
-    ]
-
-};
-
+    };
 
 module.exports = config;
