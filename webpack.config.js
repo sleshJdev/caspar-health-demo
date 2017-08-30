@@ -80,7 +80,11 @@ const
             new ExtractTextPlugin('style.css', {allChunks: true}),
             new HtmlWebpackPlugin({
                 template: 'index.html'
-            })
+            }),
+            new webpack.ContextReplacementPlugin(
+                /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+                {}
+            )
         ]
 
     }
