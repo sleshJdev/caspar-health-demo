@@ -28,7 +28,7 @@ export class PatientComponent implements OnInit {
         this.activatedRoute.params.subscribe(params => {
             const id = +params['id'];
             this.patientService.exists(id).subscribe(exists => {
-                if(exists) {
+                if (exists) {
                     this.patientService.findOne(id).subscribe(patient => {
                         this.patient = patient;
                     });
@@ -42,7 +42,6 @@ export class PatientComponent implements OnInit {
         });
 
         this.therapistService.getAll().subscribe(therapists => {
-            console.log('therapists:', therapists);
             this.therapists = therapists;
         });
     }
