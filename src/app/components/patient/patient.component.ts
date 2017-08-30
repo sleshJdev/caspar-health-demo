@@ -2,8 +2,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Component, OnInit} from "@angular/core";
 import {PatientService} from "../../persistence/service/patient.service";
 import {Patient} from "../../persistence/domain/patient";
-import {Clinic} from "../../persistence/domain/clinic";
-import {ClinicService} from "../../persistence/service/clinic-service";
 import {TherapistService} from "../../persistence/service/therapist.service";
 import {Therapist} from "../../persistence/domain/therapist";
 import {ToastyUtils} from "../../common/ToastUtils";
@@ -14,6 +12,7 @@ import {ToastyUtils} from "../../common/ToastUtils";
 })
 export class PatientComponent implements OnInit {
 
+    therapistId: number;
     patient: Patient;
     therapists: Array<Therapist>;
 
@@ -47,6 +46,8 @@ export class PatientComponent implements OnInit {
     }
 
     save() {
+        const selectedTherapist = this.therapists.find(it => it.id === +this.patient.therapist.id);
+        this.patient.therapist = selectedTherapist;
         this.patientService.save(this.patient).subscribe(() => {
             this.router.navigate(['/patients']);
         });

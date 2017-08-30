@@ -18,9 +18,10 @@
         <label for="therapist" class="col-sm-2 control-label"> Therapist: </label>
         <div class="col-sm-10">
             <select id="therapist" class="form-control"
-                    [(ngModel)]="patient.therapist"
+                    [(ngModel)]="patient.therapist.id"
                     [ngModelOptions]="{standalone: true}">
-                <option *ngFor="let it of therapists;trackBy: trackById" [ngValue]="it">
+                <option [value]="null" [selected]="patient.therapist.id == null">Please select</option>
+                <option *ngFor="let it of therapists" [value]="it.id" [selected]="it.id == patient.therapist.id">
                     {{it.firstName + ' ' + it.lastName}}
                 </option>
             </select>

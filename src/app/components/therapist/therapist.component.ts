@@ -44,6 +44,8 @@ export class TherapistComponent implements OnInit {
     }
 
     save() {
+        const selectedClinic = this.clinics.find(it => it.id === +this.therapist.clinic.id);
+        this.therapist.clinic = selectedClinic;
         this.therapistService.save(this.therapist).subscribe(() => {
             this.router.navigate(['/therapists']);
         });
