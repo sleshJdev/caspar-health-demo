@@ -83,6 +83,7 @@ const
             }),
             new webpack.ContextReplacementPlugin(
                 /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+                path.join(__dirname, 'src'),
                 {}
             )
         ]
