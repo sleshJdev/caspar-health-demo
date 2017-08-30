@@ -1,4 +1,4 @@
-import {Entity} from "./entiy";
+import {Entity} from "./entity";
 import {Therapist} from "./therapist";
 import {Clinic} from "./clinic";
 

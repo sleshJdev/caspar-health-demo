@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from '@angular/forms';
 import {AppRoutesModule} from "./app-routes.module";
+import {ToastyModule} from 'ng2-toasty';
 import {DomainModule} from "./persistence/domain.module";
 
 import {AppComponent} from "./app.component";
@@ -14,15 +15,20 @@ import {PatientsComponent} from "./components/patient/patients.component";
 import {TherapistComponent} from "./components/therapist/therapist.component";
 import {TherapistsComponent} from "./components/therapist/therapists.component";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import {ToastyUtils} from "./common/ToastUtils";
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
+        ToastyModule.forRoot(),
         AppRoutesModule,
         DomainModule
     ],
-    providers: [AppComponent, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+    providers: [
+        AppComponent,
+        ToastyUtils,
+        {provide: LocationStrategy, useClass: HashLocationStrategy}],
     declarations: [
         AppComponent,
         HomeComponent, AboutComponent,

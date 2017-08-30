@@ -1,4 +1,4 @@
-import {Entity} from "./entiy";
+import {Entity} from "./entity";
 
 export class Clinic extends Entity {
 

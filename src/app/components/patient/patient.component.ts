@@ -6,6 +6,7 @@ import {Clinic} from "../../persistence/domain/clinic";
 import {ClinicService} from "../../persistence/service/clinic-service";
 import {TherapistService} from "../../persistence/service/therapist.service";
 import {Therapist} from "../../persistence/domain/therapist";
+import {ToastyUtils} from "../../common/ToastUtils";
 
 @Component({
     selector: 'patient',
@@ -18,20 +19,26 @@ export class PatientComponent implements OnInit {
 
     constructor(private patientService: PatientService,
                 private therapistService: TherapistService,
+                private toastyUtils: ToastyUtils,
                 private activatedRoute: ActivatedRoute,
                 private router: Router) {
     }
 
     ngOnInit(): void {
         this.activatedRoute.params.subscribe(params => {
-            const id = params['id'];
-            if (id) {
-                this.patientService.findOne(+id).subscribe(patient => {
-                    this.patient = patient;
-                });
-            } else {
-                this.patient = new Patient();
-            }
+            const id = +params['id'];
+            this.patientService.exists(id).subscribe(exists => {
+                if(exists) {
+                    this.patientService.findOne(id).subscribe(patient => {
+                        this.patient = patient;
+                    });
+                } else {
+                    this.patient = new Patient();
+                    if (id) {
+                        this.toastyUtils.error('Not found', `A patient with id ${id} not found`);
+                    }
+                }
+            });
         });
 
         this.therapistService.getAll().subscribe(therapists => {

@@ -20,7 +20,11 @@ const
 
         resolve: {
             modules: ['node_modules', 'bower_components'],
-            extensions: ['.ts', '.js', '.*']
+            extensions: ['.ts', '.js', '.*'],
+            alias: {
+                'bootstrap.min.css': path.join(__dirname, 'src/bower_components/bootstrap/dist/css/bootstrap.min.css'),
+                'ng2-toasty-style-bootstrap.css': path.join(__dirname, 'node_modules/ng2-toasty/style-bootstrap.css')
+            }
         },
 
         resolveLoader: {

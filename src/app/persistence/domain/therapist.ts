@@ -1,4 +1,4 @@
-import {Entity} from "./entiy";
+import {Entity} from "./entity";
 import {Clinic} from "./clinic";
 
 export class Therapist extends Entity {

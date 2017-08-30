@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {LocalStorageService} from "angular-2-local-storage";
-import {Entity} from "../domain/entiy";
+import {Entity} from "../domain/entity";
 import {Observable} from "rxjs/Observable";
 
 export abstract class CrudService<T extends Entity> {
@@ -26,11 +26,14 @@ export abstract class CrudService<T extends Entity> {
         this.storage.set(this.getKey(), JSON.stringify(dataSet));
     }
 
+    exists(id: number): Observable<boolean> {
+        return this.applyAction(dataSet => {
+            return dataSet.has(id);
+        });
+    }
+
     findOne(id: number): Observable<T> {
         return this.applyAction(dataSet => {
-            if (!dataSet.has(id)) {
-                throw Error('Entity not found');
-            }
             return dataSet.get(id);
         });
     }
