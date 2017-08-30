@@ -16,7 +16,11 @@
     "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
-    "build": "webpack"
+    "start": "npm run build",
+    "prebuild": "npm install",
+    "postinstall": "bower install",
+    "build": "webpack",
+    "postbuild": "static-server -p 9876 ./dst "
   },
   "dependencies": {
     "@angular/common": "^4.3.6",
