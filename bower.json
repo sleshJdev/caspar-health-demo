@@ -1,0 +1,17 @@
+{
+  "name": "caspart-health-demo",
+  "description": "Proof on Concept project for Caspar Health",
+  "authors": [
+    "Yauheni Putsykovich"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sleshJdev/caspar-health-demo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./src/bower_components",
+    "test",
+    "tests"
+  ]
+}
